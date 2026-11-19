@@ -1,8 +1,9 @@
 // The Roadmap tab: four stages to the platinum, stage 1 split by story chapter, each trophy in play order.
 import { h, meter } from './dom.js';
 import { gradeDot } from './badges.js';
-import { sourceNames } from './trophy-data.js';
+import { sourceNames, formatTarget } from './trophy-data.js';
 import { visibleName } from './spoiler-shield.js';
+import { countFor } from './progress-store.js';
 
 export function renderRoadmapView(root, ctx) {
   root.replaceChildren(
@@ -53,6 +54,13 @@ function renderByChapter(ctx, trophies) {
   });
 }
 
+/** "Any time · 64 / 100" for counting trophies, so the list carries each target. */
+function stageItemNote(ctx, trophy) {
+  const when = trophy.missable ? `⚠ ${trophy.when}` : trophy.when;
+  if (!trophy.count) return when;
+  return `${formatTarget(trophy, countFor(ctx.state, trophy))} / ${formatTarget(trophy)} · ${when}`;
+}
+
 function renderStageItem(ctx, trophy) {
   const earned = Boolean(ctx.state.progress.earned[trophy.id]);
   return h('li', { class: `stage-item${earned ? ' is-earned' : ''}${trophy.missable ? ' is-missable' : ''}` },
@@ -63,5 +71,5 @@ function renderStageItem(ctx, trophy) {
     gradeDot(trophy.grade),
     h('a', { class: 'stage-link', href: '#tracker', onClick: () => ctx.updateView({ selectedId: trophy.id }) },
       h('span', { class: 'stage-name' }, visibleName(trophy, ctx.state)),
-      h('span', { class: 'stage-when' }, trophy.missable ? `⚠ ${trophy.when}` : trophy.when)));
+      h('span', { class: 'stage-when' }, stageItemNote(ctx, trophy))));
 }

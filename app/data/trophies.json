@@ -1578,9 +1578,9 @@
       "when": "Once Ocean Beach is open (Ch 4)",
       "missable": false,
       "confidence": "unconfirmed",
-      "guide": "No detailed guide exists yet: PowerPyx, GTA Base and OutputLag all list the trigger as unconfirmed. Going by the official description only, look for a bar or terrace with a sea view on Ocean Beach (the area the Chapter 4 mission of the same name opens) and order a drink there. Update this entry when a source confirms the spot.",
+      "guide": "No detailed guide exists yet: PowerPyx, GTA Base and OutputLag all list the trigger as unconfirmed. Going by the official description only, look for a bar or terrace with a sea view on Ocean Beach and order a drink there (PowerPyx lists a Chapter 4 mission named Ocean Beach, so the area should be reachable by then). Update this entry when a source confirms the spot.",
       "steps": [
-        "Travel to Ocean Beach once Chapter 4 opens it.",
+        "Travel to Ocean Beach (by Chapter 4 at the latest).",
         "Look for a bar or terrace with an ocean view and buy a cocktail.",
         "Drink it; if nothing pops, try another venue on the beach front."
       ],

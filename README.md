@@ -8,6 +8,7 @@
 
 - `app/`: the guide (`index.html`, small ES modules in `app/js/`, stylesheets in `app/css/`, data in `app/data/trophies.json`)
 - `scripts/take-screenshots.mjs`: drives headless Chrome/Edge over the DevTools protocol to capture `screenshots/` from the views in `shots.json`
+- `scripts/smoke-test.mjs`: clicks through the real app (filters, search, saved ticks, spoiler shield, export/import, a sourced guide for all 55) and fails on any request that leaves the local server
 - `main.ts`: hands the entry in (copies `app/` and `screenshots/`, writes `dossier.json`)
 
 ## Run it
