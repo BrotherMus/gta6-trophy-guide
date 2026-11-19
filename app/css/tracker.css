@@ -1,0 +1,61 @@
+/* Tracker tab: checklist column (filter chips, tools, scrolling rows) beside the full-height guide panel. */
+.tracker-split { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 18px; }
+.list-pane { display: flex; flex-direction: column; min-height: 0; }
+
+.filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); font-size: 14.5px; font-weight: 700; cursor: pointer;
+}
+.chip:hover { border-color: var(--mint); }
+.chip.is-active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.chip:disabled { opacity: 0.55; cursor: not-allowed; text-decoration: line-through; }
+.chip-count { font-size: 12.5px; font-weight: 800; opacity: 0.75; }
+.chip-missable:not(.is-active) { border-color: #7a2d43; color: #ffb3c2; }
+
+.filter-tools { display: flex; align-items: center; gap: 8px; }
+.select, .search {
+  height: 34px; padding: 0 10px; border-radius: 9px; border: 1px solid var(--line);
+  background: var(--panel); font-size: 14.5px;
+}
+.search { flex: 1; min-width: 120px; }
+.toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; color: var(--muted); white-space: nowrap; cursor: pointer; }
+
+.list-meta { font-size: 13.5px; color: var(--muted); margin-bottom: 4px; }
+.list-meta strong { color: var(--text); }
+
+.trophy-list { list-style: none; overflow-y: auto; min-height: 0; padding-right: 4px; border-top: 1px solid var(--line); }
+.trophy-row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  padding: 8px 10px; border-bottom: 1px solid var(--line);
+}
+.trophy-row:hover { background: #161a2a; }
+.trophy-row.is-selected { background: var(--panel-raised); box-shadow: inset 4px 0 0 var(--mint); }
+.trophy-row.is-earned .trophy-name { color: var(--mint); }
+.trophy-row.is-shielded .trophy-name, .trophy-row.is-shielded .trophy-desc { color: var(--faint); font-style: italic; }
+
+.earned-box { width: 24px; height: 24px; accent-color: var(--mint); cursor: pointer; flex: none; }
+.earned-box.small { width: 18px; height: 18px; }
+
+.row-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+.row-title { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.trophy-name { font-size: 18px; font-weight: 750; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 0 1 auto; }
+.row-title .tag { flex: none; }
+.row-desc { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.trophy-desc { font-size: 15.5px; color: #cdd1e4; }
+
+.count-pill { display: inline-flex; align-items: center; gap: 6px; flex: none; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+.count-bar { width: 54px; height: 6px; border-radius: 9px; background: #2a2f49; overflow: hidden; }
+.count-bar span { display: block; height: 100%; background: var(--mint); }
+
+.empty-row { list-style: none; padding: 24px 12px; color: var(--muted); font-size: 16px; }
+
+@media (max-width: 900px) {
+  .tracker-split { grid-template-columns: 1fr; }
+  .trophy-list { max-height: 60vh; }
+  .filter-tools { flex-wrap: wrap; }
+  .trophy-name { white-space: normal; }
+  .row-title { flex-wrap: wrap; }
+}
