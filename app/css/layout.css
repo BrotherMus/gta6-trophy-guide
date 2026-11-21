@@ -1,0 +1,62 @@
+/* Page frame: top bar with progress, view tabs, and the two-pane checklist layout. */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+
+.brand-mark {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: conic-gradient(var(--accent) 0 40%, var(--accent-2) 40% 75%, #ffd36b 75%);
+  box-shadow: inset 0 0 0 7px var(--bg);
+}
+
+.brand h1 { font-size: 21px; letter-spacing: 0.2px; }
+
+.brand-sub { margin: 2px 0 0; color: var(--text-dim); font-size: 13px; }
+
+.progress-summary { flex: 1; display: flex; gap: 14px; align-items: center; }
+
+.overall { min-width: 170px; }
+
+.overall-num { font-size: 26px; font-weight: 800; }
+
+.overall-num small { font-size: 15px; color: var(--text-dim); font-weight: 600; }
+
+.bar { height: 8px; background: var(--bg-sunk); border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+
+.bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ffd36b); }
+
+.grade-bars { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+.grade-bar-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+
+.grade-bar.platinum .bar > span { background: var(--platinum); }
+.grade-bar.gold .bar > span { background: var(--gold); }
+.grade-bar.silver .bar > span { background: var(--silver); }
+.grade-bar.bronze .bar > span { background: var(--bronze); }
+
+.view-tabs { display: flex; gap: 4px; padding: 8px 20px 0; border-bottom: 1px solid var(--line); }
+
+.tab {
+  background: none; border: 0; border-bottom: 3px solid transparent;
+  padding: 8px 14px; font-weight: 700; font-size: 15px; color: var(--text-dim);
+}
+
+.tab[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+
+.view-root { padding: 14px 20px 20px; }
+
+.tracker-layout { display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: 16px; align-items: start; }
+
+.panel { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); }
+
+@media (max-width: 900px) {
+  .topbar { flex-direction: column; align-items: stretch; }
+  .tracker-layout { grid-template-columns: 1fr; }
+  .grade-bars { grid-template-columns: repeat(2, 1fr); }
+}

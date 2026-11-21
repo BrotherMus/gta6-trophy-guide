@@ -1,5 +1,6 @@
 [
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
+  { "file": "1-checklist-guide.jpg", "path": "/#view=tracker&trophy=28", "view": "checklist with filters, progress by grade and the Positive Mental Attitude guide and sources open", "spoilers": true, "viewport": { "width": 1280, "height": 800 } },
+  { "file": "2-roadmap.jpg", "path": "/#view=roadmap", "view": "four-stage roadmap to the platinum", "spoilers": false, "viewport": { "width": 1280, "height": 800 } },
+  { "file": "3-missables.jpg", "path": "/#view=missables", "view": "missable callout, chapter timeline and counts from the official descriptions", "spoilers": false, "viewport": { "width": 1280, "height": 800 } },
+  { "file": "4-spoilers-backup.jpg", "path": "/#view=settings", "view": "story spoiler setting with preview, export and import", "spoilers": true, "viewport": { "width": 1280, "height": 800 } }
 ]

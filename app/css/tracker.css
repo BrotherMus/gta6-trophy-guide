@@ -1,0 +1,91 @@
+/* Checklist: filter chips, search, trophy rows, grade badges and the guide panel. */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; }
+
+.chip {
+  border: 1px solid var(--line); background: var(--bg-raised); border-radius: 99px;
+  padding: 4px 11px; font-size: 14px; font-weight: 600; color: var(--text-dim);
+}
+
+.chip b { color: var(--text); margin-left: 4px; font-weight: 700; }
+
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #1b0d08; }
+
+.chip[aria-pressed="true"] b { color: #1b0d08; }
+
+.chip.missable-chip[aria-pressed="true"] { background: var(--missable); border-color: var(--missable); }
+
+.search-input {
+  flex: 1; min-width: 160px; background: var(--bg-sunk); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 10px;
+}
+
+.trophy-list { list-style: none; margin: 0; padding: 0; max-height: calc(100vh - 230px); overflow: auto; }
+
+.trophy-row {
+  display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: center;
+  padding: 8px 12px; border-bottom: 1px solid var(--line); cursor: pointer;
+}
+
+.trophy-row:hover { background: #1d2538; }
+
+.trophy-row.selected { background: #232c42; box-shadow: inset 4px 0 0 var(--accent); }
+
+.trophy-row.earned .trophy-name { color: var(--earned); }
+
+.earn-box { width: 24px; height: 24px; accent-color: var(--earned); cursor: pointer; }
+
+.trophy-name { font-weight: 750; font-size: 17px; }
+
+.trophy-desc { color: var(--text-dim); font-size: 14.5px; }
+
+.trophy-tags { display: flex; gap: 6px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+
+.grade-badge {
+  display: inline-flex; align-items: center; gap: 5px; border-radius: 6px; padding: 2px 8px;
+  font-size: 12.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: #14161c;
+}
+
+.grade-badge::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(0, 0, 0, 0.35); }
+
+.grade-badge.platinum { background: var(--platinum); }
+.grade-badge.gold { background: var(--gold); }
+.grade-badge.silver { background: var(--silver); }
+.grade-badge.bronze { background: var(--bronze); }
+
+.tag { font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--line); color: var(--text-dim); }
+
+.tag.missable { border-color: var(--missable); color: var(--missable); }
+
+.tag.spoiler { border-style: dashed; }
+
+.list-empty { padding: 24px; color: var(--text-dim); }
+
+.guide-panel { padding: 16px 18px; position: sticky; top: 10px; }
+
+.guide-head { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+
+.guide-panel h2 { font-size: 23px; }
+
+.guide-official { margin: 6px 0 10px; color: var(--text-dim); font-size: 15px; }
+
+.guide-official q { color: var(--text); font-style: italic; }
+
+.guide-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+
+.guide-text { font-size: 15.5px; margin: 0 0 10px; }
+
+.guide-steps { margin: 0 0 12px; padding-left: 20px; font-size: 15px; }
+
+.guide-steps li { margin-bottom: 3px; }
+
+.guide-sources { border-top: 1px solid var(--line); padding-top: 9px; }
+
+.guide-sources h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent-2); margin-bottom: 5px; }
+
+.guide-sources ul { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+
+.guide-sources li { margin-bottom: 4px; }
+
+.source-url { display: block; color: var(--text-dim); font-size: 12px; word-break: break-all; }
+
+.missable-note { background: rgba(255, 79, 123, 0.12); border: 1px solid var(--missable); border-radius: 8px; padding: 7px 10px; font-size: 14.5px; margin-bottom: 10px; }

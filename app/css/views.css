@@ -1,0 +1,84 @@
+/* Roadmap stages, missables timeline and the spoilers & backup settings. */
+.view-intro { margin: 0 0 12px; color: var(--text-dim); font-size: 15px; max-width: 980px; }
+
+.stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+.stage-card { padding: 12px; }
+
+.stage-num { color: var(--accent); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+.stage-card h2 { font-size: 19px; margin: 2px 0 4px; }
+
+.stage-summary { font-size: 13.5px; color: var(--text-dim); margin: 0 0 8px; }
+
+.stage-progress { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+
+.stage-list { list-style: none; margin: 8px 0 0; padding: 0; font-size: 13.5px; }
+
+.stage-list li { display: flex; gap: 6px; align-items: baseline; padding: 2px 0; border-bottom: 1px dashed #222b3e; }
+
+.stage-list li.earned { color: var(--earned); }
+
+.stage-list .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; transform: translateY(-1px); }
+
+.dot.platinum { background: var(--platinum); }
+.dot.gold { background: var(--gold); }
+.dot.silver { background: var(--silver); }
+.dot.bronze { background: var(--bronze); }
+
+.stage-list .where { color: var(--text-dim); margin-left: auto; white-space: nowrap; font-size: 12px; }
+
+.flag { color: var(--missable); font-weight: 800; }
+
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px; }
+
+.chapter-col { padding: 10px; }
+
+.chapter-col h2 { font-size: 17px; margin-bottom: 6px; }
+
+.chapter-item { font-size: 13.5px; padding: 5px 7px; border-radius: 7px; margin-bottom: 5px; background: var(--bg-sunk); }
+
+.chapter-item.is-missable { background: rgba(255, 79, 123, 0.16); border: 1px solid var(--missable); }
+
+.chapter-item .kind { display: block; font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.counts-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+.counts-table th, .counts-table td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+
+.counts-table th { color: var(--text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.counts-table .count { font-weight: 800; color: var(--accent-2); font-size: 16px; }
+
+.missable-callout { padding: 12px 14px; margin-bottom: 12px; border-color: var(--missable); }
+
+.missable-callout h2 { font-size: 19px; color: var(--missable); margin-bottom: 4px; }
+
+.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.settings-card { padding: 16px; }
+
+.settings-card h2 { font-size: 20px; margin-bottom: 6px; }
+
+.settings-card p { color: var(--text-dim); font-size: 14.5px; }
+
+.toggle { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; margin: 10px 0; }
+
+.toggle input { width: 22px; height: 22px; accent-color: var(--accent); }
+
+.btn {
+  background: var(--accent); color: #1b0d08; border: 0; border-radius: 8px; padding: 8px 14px;
+  font-weight: 800; margin-right: 8px;
+}
+
+.btn.secondary { background: var(--bg-sunk); color: var(--text); border: 1px solid var(--line); }
+
+.status-line { min-height: 22px; font-size: 14px; color: var(--earned); }
+
+.preview-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; }
+
+.preview-list li { padding: 5px 0; border-bottom: 1px solid var(--line); }
+
+@media (max-width: 900px) {
+  .stage-grid, .timeline, .settings-grid { grid-template-columns: 1fr; }
+}

@@ -1,25 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leonida Platinum Tracker – GTA VI trophy guide</title>
+  <meta name="description" content="Offline tracker, platinum roadmap, missables and cited guides for all 55 Grand Theft Auto VI trophies.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/tracker.css">
+  <link rel="stylesheet" href="css/views.css">
+  <link rel="modulepreload" href="js/main.js">
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
-</header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
-<script type="module" src="app.js"></script>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <h1 id="app-title">Leonida Platinum Tracker</h1>
+        <p class="brand-sub">GTA VI · PS5 · 55 trophies · offline</p>
+      </div>
+    </div>
+    <section id="progress-summary" class="progress-summary" aria-label="Progress"></section>
+  </header>
+  <nav id="view-tabs" class="view-tabs" aria-label="Views">
+    <button data-view="tracker" class="tab">Checklist</button>
+    <button data-view="roadmap" class="tab">Roadmap</button>
+    <button data-view="missables" class="tab">Missables</button>
+    <button data-view="settings" class="tab">Spoilers &amp; backup</button>
+  </nav>
+  <main id="view-root" class="view-root">
+    <p class="loading">Loading trophies…</p>
+  </main>
 </body>
 </html>
