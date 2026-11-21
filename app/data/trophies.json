@@ -44,13 +44,13 @@
       "id": 3,
       "title": "Activities & challenges",
       "hours": "40–50 h",
-      "summary": "Shooting ranges, drone races, street races, stunts, side-quest finales and 50 of the 80 challenges."
+      "summary": "Ranges, drone and street races, stunts, side-quest finales, easter eggs and 50 of 80 challenges."
     },
     {
       "id": 4,
-      "title": "Final grind",
-      "hours": "10–20 h",
-      "summary": "Bank vaults and laundering, shopping and garages, the 100% checklist, then the platinum."
+      "title": "Heists & final grind",
+      "hours": "20–30 h",
+      "summary": "Partner robberies, gang operations and bank vaults, then laundering, shopping, garages and the 100% checklist."
     }
   ],
   "trophies": [
@@ -657,7 +657,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "chapter": 2,
       "guide": "Possible once both characters can roam together after Coffee Break (Chapter 2). With your partner along, reach four stars and escape the red heat zone. PowerPyx suggests a sports bike or the rail tunnel north of Ambrosia; bank vault jobs in Chapter 4 give four stars anyway.",
       "steps": [
@@ -675,7 +675,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "chapter": 3,
       "guide": "With your partner along, rob three robbery targets in a row while the wanted level stays on. PowerPyx uses the three jewelry stores in north Vice City (open after Yasmani's Jewelry Jobs, Chapter 3), with armour and sticky bombs. The unlock lags about 30 s; hit a fourth shop if needed.",
       "steps": [
@@ -764,7 +764,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "chapter": 3,
       "guide": "Yasmani's Jewelry Jobs (Chapter 3) gives the Snap Gun. Pick a back door with it, find the safe code note, empty the safe, and wipe the CCTV and alarm in the back room. PowerPyx used Richardson Jewelry & Diamonds in Vice City.",
       "steps": [
@@ -803,7 +803,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "chapter": 4,
       "guide": "Robbing a big bank vault counts, so it unlocks with That's Where The Money Is… in Chapter 4. Earlier, block an armored truck near a Vice City bank, sticky-bomb its back doors and escape the red heat zone.",
       "steps": [
@@ -838,7 +838,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "guide": "Nine gangs run 39 operations (yellow icons). One per gang earns the trophy; all 39 are on the 100% list. Progress → Gangs shows how many of each you have hit.",
       "steps": [
         "Open Progress → Gangs to see who is left.",
@@ -944,7 +944,7 @@
       "grade": "bronze",
       "kind": "crime",
       "missable": false,
-      "stage": 3,
+      "stage": 4,
       "chapter": 3,
       "guide": "Rob the prologue's Payday Loans in Little Cuba again, alone as Lucia, and escape on foot. Payday robberies open after Credit Check (Meet Raul's Crew) in Chapter 3. The unlock waits until you are well out of the search area.",
       "steps": [

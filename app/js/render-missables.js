@@ -3,40 +3,46 @@
 import { createElement } from './dom.js';
 import { sortByPlayOrder } from './render-roadmap.js';
 import { visibleName } from './spoilers.js';
-import { KIND_LABELS } from './trophy-data.js';
-
 const CHAPTERS = [1, 2, 3, 4, 5];
+
+// One-word labels so each timeline entry stays on a single line.
+const SHORT_KIND = { story: 'story', side: 'side', collectibles: 'collect', activities: 'activity', crime: 'heist', misc: 'misc', completion: '100%' };
 
 function chapterItem(trophy, state, actions) {
   return createElement(
     'div',
     { className: `chapter-item${trophy.missable ? ' is-missable' : ''}`, onclick: () => actions.openTrophy(trophy.id), style: 'cursor:pointer' },
-    createElement('span', { className: 'kind' }, trophy.missable ? 'Missable · do now' : trophy.kind === 'story' ? 'Story · automatic' : `${KIND_LABELS[trophy.kind]} · unlocks here`),
     `${state.earned.has(trophy.id) ? '✓ ' : ''}${visibleName(trophy, state)}`,
+    createElement('span', { className: `kind kind-${trophy.kind}` }, trophy.missable ? 'MISSABLE' : SHORT_KIND[trophy.kind]),
   );
 }
 
 // Reads the number a trophy asks for straight from its official description ("Complete 250 Stunts.").
 export function countFromDescription(description) {
-  const match = description.match(/\$?([\d,]+)\s*([A-Za-z][^.]*)?/);
+  const match = description.match(/(\$?)([\d,]+)(%?)/);
   if (!match) return null;
-  return { amount: match[0].startsWith('$') ? `$${match[1]}` : match[1], what: description.replace(/\.$/, '') };
+  return { amount: `${match[1]}${match[2]}${match[3]}`, what: description.replace(/\.$/, '') };
 }
 
-function countsTable(data, state) {
+function countCards(data, state) {
   const rows = data.trophies
     .filter((trophy) => trophy.kind !== 'story' && /\d/.test(trophy.description))
     .map((trophy) => ({ trophy, count: countFromDescription(trophy.description) }))
     .filter((row) => row.count);
   return createElement(
-    'table',
-    { className: 'counts-table' },
-    createElement('thead', {}, createElement('tr', {}, createElement('th', {}, 'Count'), createElement('th', {}, 'Trophy'), createElement('th', {}, 'Official requirement'), createElement('th', {}, 'Stage'))),
+    'section',
+    { className: 'panel counts-panel' },
+    createElement('h2', {}, 'Collectibles & counts, read from the official descriptions'),
     createElement(
-      'tbody',
-      {},
+      'div',
+      { className: 'count-grid' },
       rows.map(({ trophy, count }) =>
-        createElement('tr', {}, createElement('td', { className: 'count' }, count.amount), createElement('td', {}, visibleName(trophy, state)), createElement('td', {}, count.what), createElement('td', {}, `Stage ${trophy.stage}`)),
+        createElement(
+          'div',
+          { className: `count-card${state.earned.has(trophy.id) ? ' earned' : ''}`, title: count.what },
+          createElement('span', { className: 'count' }, count.amount),
+          createElement('span', {}, createElement('b', {}, visibleName(trophy, state)), createElement('small', {}, ` S${trophy.stage}`)),
+        ),
       ),
     ),
   );
@@ -54,10 +60,10 @@ export function renderMissablesView(data, state, actions) {
     createElement(
       'section',
       { className: 'panel missable-callout' },
-      createElement('h2', {}, `${missables.length} potentially missable trophy`),
+      createElement('h2', {}, `${missables.length} potentially missable trophy · chapter-by-chapter unlock timeline`),
       missables.map((trophy) => createElement('p', { style: 'margin:0' }, createElement('b', {}, `${trophy.name}: `), trophy.missableNote, ' Everything else can be finished in free roam after the story (PowerPyx, KeenGamer).')),
     ),
     createElement('div', { className: 'timeline' }, columns),
-    createElement('section', { className: 'panel', style: 'padding:10px' }, countsTable(data, state)),
+    countCards(data, state),
   );
 }

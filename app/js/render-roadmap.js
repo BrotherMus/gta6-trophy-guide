@@ -38,7 +38,7 @@ export function renderRoadmapView(data, state, actions) {
   return createElement(
     'div',
     {},
-    createElement('p', { className: 'view-intro' }, 'One playthrough, about 200 hours (PowerPyx). Story first with the one missable, then collectibles, then activities, then the 100% grind. Click any trophy to open its guide.'),
+    createElement('p', { className: 'view-intro' }, 'One playthrough, ~200 h (PowerPyx). ! marks the one missable. Ch = chapter it opens in. Click a trophy for its guide.'),
     createElement('div', { className: 'stage-grid' }, data.stages.map((stage) => stageCard(stage, data, state, actions))),
   );
 }

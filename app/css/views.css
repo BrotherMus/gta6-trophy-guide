@@ -36,19 +36,35 @@
 
 .chapter-col h2 { font-size: 17px; margin-bottom: 6px; }
 
-.chapter-item { font-size: 13.5px; padding: 5px 7px; border-radius: 7px; margin-bottom: 5px; background: var(--bg-sunk); }
+.chapter-item {
+  font-size: 14px; font-weight: 600; padding: 4px 8px; border-radius: 6px; margin-bottom: 4px;
+  background: var(--bg-sunk); border-left: 4px solid var(--line);
+  display: flex; justify-content: space-between; gap: 6px; align-items: baseline;
+}
 
-.chapter-item.is-missable { background: rgba(255, 79, 123, 0.16); border: 1px solid var(--missable); }
+.chapter-item.is-missable { background: rgba(255, 79, 123, 0.18); border: 1px solid var(--missable); border-left-width: 4px; }
 
-.chapter-item .kind { display: block; font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+.chapter-item .kind { font-size: 11px; color: var(--text-dim); white-space: nowrap; font-weight: 500; }
 
-.counts-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.chapter-item.is-missable .kind { color: var(--missable); font-weight: 800; }
 
-.counts-table th, .counts-table td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+.chapter-item:has(.kind-story) { border-left-color: var(--accent); }
+.chapter-item:has(.kind-side) { border-left-color: var(--accent-2); }
+.chapter-item:has(.kind-crime) { border-left-color: #ffd36b; }
 
-.counts-table th { color: var(--text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.counts-panel { padding: 10px 12px; }
 
-.counts-table .count { font-weight: 800; color: var(--accent-2); font-size: 16px; }
+.counts-panel h2 { font-size: 16px; margin-bottom: 8px; }
+
+.count-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+
+.count-card { display: flex; gap: 8px; align-items: baseline; background: var(--bg-sunk); border-radius: 7px; padding: 4px 8px; font-size: 13.5px; }
+
+.count-card.earned b { color: var(--earned); }
+
+.count-card .count { font-weight: 800; color: var(--accent-2); font-size: 17px; min-width: 52px; }
+
+.count-card small { color: var(--text-dim); }
 
 .missable-callout { padding: 12px 14px; margin-bottom: 12px; border-color: var(--missable); }
 
@@ -57,6 +73,10 @@
 .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 .settings-card { padding: 16px; }
+
+.settings-card.wide { grid-column: 1 / -1; padding: 12px 16px; }
+
+.kind-progress-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
 
 .settings-card h2 { font-size: 20px; margin-bottom: 6px; }
 
@@ -74,6 +94,13 @@
 .btn.secondary { background: var(--bg-sunk); color: var(--text); border: 1px solid var(--line); }
 
 .status-line { min-height: 22px; font-size: 14px; color: var(--earned); }
+
+.preview-head { font-size: 14px; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.5px; margin: 6px 0; }
+
+.export-preview {
+  background: var(--bg-sunk); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+  font: 13.5px/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace; white-space: pre-wrap; margin: 0 0 8px;
+}
 
 .preview-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; }
 

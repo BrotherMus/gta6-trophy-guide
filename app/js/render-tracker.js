@@ -4,6 +4,7 @@ import { createElement } from './dom.js';
 import { countForKindFilter, filterTrophies, GRADE_FILTERS, KIND_FILTERS, STATUS_FILTERS } from './filters.js';
 import { gradeBadge, renderGuidePanel } from './render-guide.js';
 import { isSpoilerHidden, visibleDescription, visibleName } from './spoilers.js';
+import { resolveSources } from './trophy-data.js';
 
 function chip(label, pressed, onClick, count, extraClass = '') {
   return createElement(
@@ -35,7 +36,14 @@ function renderFilterBar(data, state, actions) {
   return createElement('div', { className: 'filter-bar' }, kindChips, gradeSelect, statusSelect, search, createElement('span', { className: 'tag' }, 'Online: none in list'));
 }
 
-function renderTrophyRow(trophy, state, actions) {
+// "Ch 1 · Stage 2 · PowerPyx +1": where the trophy sits in the roadmap and which guides back its tips.
+function rowMetaLine(trophy, data) {
+  const sources = resolveSources(trophy, data.sources).map((source) => source.name.split(' – ')[0]);
+  const cited = sources.length > 1 ? `${sources[0]} +${sources.length - 1}` : sources[0] ?? 'no source';
+  return [trophy.chapter ? `Ch ${trophy.chapter}` : null, `Stage ${trophy.stage}`, `Cited: ${cited}`].filter(Boolean).join(' · ');
+}
+
+function renderTrophyRow(trophy, data, state, actions) {
   const earned = state.earned.has(trophy.id);
   const checkbox = createElement('input', {
     type: 'checkbox', className: 'earn-box', checked: earned, 'aria-label': `Earned: ${visibleName(trophy, state)}`,
@@ -48,10 +56,15 @@ function renderTrophyRow(trophy, state, actions) {
     createElement('div', {}, createElement('div', { className: 'trophy-name' }, visibleName(trophy, state)), createElement('div', { className: 'trophy-desc' }, visibleDescription(trophy, state))),
     createElement(
       'div',
-      { className: 'trophy-tags' },
-      trophy.missable ? createElement('span', { className: 'tag missable' }, 'Missable') : null,
-      isSpoilerHidden(trophy, state) ? createElement('span', { className: 'tag spoiler' }, 'Spoiler') : null,
-      gradeBadge(trophy.grade),
+      { className: 'trophy-side' },
+      createElement(
+        'div',
+        { className: 'trophy-tags' },
+        trophy.missable ? createElement('span', { className: 'tag missable' }, 'Missable') : null,
+        isSpoilerHidden(trophy, state) ? createElement('span', { className: 'tag spoiler' }, 'Spoiler') : null,
+        gradeBadge(trophy.grade),
+      ),
+      createElement('div', { className: 'trophy-meta' }, rowMetaLine(trophy, data)),
     ),
   );
 }
@@ -59,7 +72,7 @@ function renderTrophyRow(trophy, state, actions) {
 export function renderTrackerView(data, state, actions) {
   const visible = filterTrophies(data.trophies, state);
   const list = visible.length
-    ? createElement('ul', { className: 'trophy-list' }, visible.map((trophy) => renderTrophyRow(trophy, state, actions)))
+    ? createElement('ul', { className: 'trophy-list' }, visible.map((trophy) => renderTrophyRow(trophy, data, state, actions)))
     : createElement('p', { className: 'list-empty' }, 'No trophy matches these filters.');
   return createElement(
     'div',

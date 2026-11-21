@@ -38,7 +38,11 @@
 
 .trophy-desc { color: var(--text-dim); font-size: 14.5px; }
 
+.trophy-side { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
 .trophy-tags { display: flex; gap: 6px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+
+.trophy-meta { font-size: 12.5px; color: var(--accent-2); white-space: nowrap; font-weight: 600; }
 
 .grade-badge {
   display: inline-flex; align-items: center; gap: 5px; border-radius: 6px; padding: 2px 8px;
