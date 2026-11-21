@@ -3,34 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Trophy Log · GTA VI platinum guide &amp; tracker</title>
-<meta name="description" content="Offline tracker, platinum roadmap, missables and cited guides for all 55 Grand Theft Auto VI PS5 trophies.">
-<link rel="icon" href="icon.svg">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/tracker.css">
-<link rel="stylesheet" href="css/guide.css">
-<link rel="stylesheet" href="css/plans.css">
-<link rel="stylesheet" href="css/settings.css">
-<script type="module" src="js/main.js"></script>
+<title>GTA VI trophy checklist</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#tracker" aria-label="Leonida Trophy Log home">
-    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="url(#brandGlow)"/><path d="M12 10h16v6a8 8 0 0 1-16 0zM20 24v5M14 31h12M12 12H8a4 4 0 0 0 4 6M28 12h4a4 4 0 0 1-4 6" fill="none" stroke="#10121b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="brandGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee8c8"/><stop offset="1" stop-color="#ff8a5c"/></linearGradient></defs></svg>
-    <span class="brand-text"><strong>Leonida Trophy Log</strong><small>GTA VI · PS5 · 55 trophies · offline</small></span>
-  </a>
-  <nav class="tabs" id="tabs" aria-label="Views">
-    <a href="#tracker" data-route="tracker">Tracker</a>
-    <a href="#roadmap" data-route="roadmap">Roadmap</a>
-    <a href="#missables" data-route="missables">Missables</a>
-    <a href="#settings" data-route="settings">Spoilers &amp; backup</a>
-  </nav>
+<header>
+  <h1>GTA VI trophy checklist</h1>
+  <p id="progress">0 of 55 earned</p>
 </header>
-<section class="progress-strip" id="progress-strip" aria-label="Progress by grade"></section>
-<main id="view" class="view" aria-live="polite">
-  <p class="loading" id="loading">Loading the trophy list…</p>
-</main>
-<noscript><p class="loading">This guide needs JavaScript to show the trophy list.</p></noscript>
+<div class="controls">
+  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+  <button id="export" type="button">Export progress</button>
+  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+</div>
+<table>
+  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+<script type="module" src="app.js"></script>
 </body>
 </html>
