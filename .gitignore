@@ -1,0 +1,9 @@
+# Local hand-in output from `MAKEFUN_OUTPUT_DIR=out node main.ts`
+out/
+
+# Editor and OS clutter
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/

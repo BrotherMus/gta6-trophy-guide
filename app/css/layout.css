@@ -1,0 +1,114 @@
+/* Page frame: top bar with view tabs, the progress strip, and the two-column checklist + guide layout. */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 7px 24px;
+  background: linear-gradient(90deg, var(--night) 0%, var(--night-2) 70%, #4a2a5a 100%);
+  color: #fff;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--amber), var(--coral), #b23a8a) 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--amber), var(--coral));
+  color: var(--night);
+  font-size: 1.4rem;
+}
+
+.brand-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.brand-sub {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tabs a {
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.tabs a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tabs a[aria-current="page"] {
+  background: var(--amber);
+  color: var(--night);
+}
+
+.progress-strip {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.3fr) repeat(4, minmax(120px, 1fr));
+  gap: 18px;
+  align-items: center;
+  padding: 7px 24px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.view-root {
+  padding: 12px 24px 24px;
+}
+
+.checklist-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.checklist-column {
+  min-width: 0;
+}
+
+.guide-column {
+  position: sticky;
+  top: 12px;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progress-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .checklist-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-column {
+    position: static;
+    max-height: none;
+  }
+}

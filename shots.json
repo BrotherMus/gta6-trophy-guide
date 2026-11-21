@@ -1,5 +1,39 @@
 [
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
+  {
+    "file": "1-checklist-guide.jpg",
+    "view": "Checklist with filters, progress by grade, and the cited guide for Positive Mental Attitude open beside it",
+    "path": "#/checklist/28",
+    "viewport": { "width": 1280, "height": 800 },
+    "earned": [2, 3, 4, 5, 8, 9, 20, 21, 22, 23, 33, 35, 41, 46],
+    "preferences": { "hideStorySpoilers": false, "hideAllHiddenTrophies": false, "kindFilter": "all", "gradeFilter": "all", "statusFilter": "all", "searchText": "" },
+    "waitFor": ".guide-panel .source-list"
+  },
+  {
+    "file": "2-roadmap.jpg",
+    "view": "Roadmap to the platinum in four stages with tasks, trophies and per-stage progress",
+    "path": "#/roadmap",
+    "viewport": { "width": 1280, "height": 800 },
+    "earned": [2, 3, 4, 5, 8, 9, 20, 21, 22, 23, 33, 35, 41, 46],
+    "preferences": { "hideStorySpoilers": false, "hideAllHiddenTrophies": false },
+    "waitFor": ".stage-card"
+  },
+  {
+    "file": "3-missables.jpg",
+    "view": "Missables: the potentially missable trophy, the story order of unlocks, and safe-to-miss content",
+    "path": "#/missables",
+    "viewport": { "width": 1280, "height": 800 },
+    "earned": [2, 3, 4, 5, 8, 9, 20, 21, 22, 23, 33, 35, 41, 46],
+    "preferences": { "hideStorySpoilers": false, "hideAllHiddenTrophies": false },
+    "waitFor": ".timeline-step"
+  },
+  {
+    "file": "4-spoilers-backup.jpg",
+    "view": "Spoiler setting on (story trophies covered until earned) and progress exported to a JSON file",
+    "path": "#/settings",
+    "viewport": { "width": 1280, "height": 800 },
+    "earned": [2, 3, 4, 5, 8, 9, 20, 21, 22, 23, 33, 35, 41, 46],
+    "preferences": { "hideStorySpoilers": true, "hideAllHiddenTrophies": false },
+    "click": ".backup-actions .button",
+    "waitFor": ".settings-layout"
+  }
 ]
