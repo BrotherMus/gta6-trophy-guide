@@ -12,7 +12,7 @@
 node serve.ts
 ```
 
-Then open http://localhost:8080. Screenshots are retaken with `node tools/take-screenshots.mjs` (headless Chrome or Edge over the DevTools protocol, driven by `shots.json`).
+Then open http://localhost:8080. Screenshots are retaken with `node tools/take-screenshots.mjs` (headless Chrome or Edge over the DevTools protocol, driven by `shots.json`), and `node tools/smoke-test.mjs` checks the tracker in the same browser: 55 rows, saved ticks, every filter, search, spoilers, export/import, and no request outside the local server.
 
 ---
 

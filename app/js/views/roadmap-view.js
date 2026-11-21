@@ -1,7 +1,7 @@
 // The roadmap to the platinum: four stages in order, each with its tasks, its trophies and their progress.
 import { el, replaceContent } from '../ui/dom.js';
 import { renderGradeDot, renderMeter } from '../ui/grade-badge.js';
-import { trophiesInStage } from '../data/load-trophy-data.js';
+import { storyStepOf, trophiesInStage } from '../data/load-trophy-data.js';
 import { maskedTrophyName } from '../logic/spoiler-rules.js';
 import { renderSourceLine } from '../ui/source-links.js';
 
@@ -42,15 +42,17 @@ function renderStageCard(stage, context) {
 
 function renderStageTrophy(trophy, context) {
   const masked = context.isMasked(trophy);
+  const step = storyStepOf(context.data, trophy.id);
   return el(
     'li',
     { className: 'stage-trophy' },
     renderGradeDot(trophy.grade),
-    el('a', {
-      href: `#/checklist/${trophy.id}`,
-      text: masked ? maskedTrophyName(trophy) : trophy.name,
-      title: masked ? 'Spoiler hidden' : trophy.description,
-    }),
+    el(
+      'a',
+      { href: `#/checklist/${trophy.id}`, title: masked ? 'Spoiler hidden' : trophy.description },
+      masked ? maskedTrophyName(trophy) : trophy.name,
+      step && trophy.stage === 1 && el('span', { className: 'stage-chapter', text: ` · ${step.chapter.replace('Chapter ', 'Ch ')}` }),
+    ),
     context.progress.isEarned(trophy.id)
       ? el('span', { className: 'done', text: '✓' })
       : el('span', { text: trophy.missable ? '⚠' : trophy.count ? `×${trophy.count}` : '' }),

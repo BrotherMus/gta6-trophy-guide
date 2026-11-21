@@ -21,6 +21,29 @@ export function indexTrophyData(raw) {
   };
 }
 
+/**
+ * A stage's trophies in play order. The story stage follows the story timeline chapter by chapter; the free-roam
+ * stages keep the official list order, with the platinum always last.
+ */
 export function trophiesInStage(data, stageId) {
-  return data.trophies.filter((trophy) => trophy.stage === stageId);
+  const inStage = data.trophies.filter((trophy) => trophy.stage === stageId);
+  if (stageId === 1) {
+    const storyPosition = storyOrderOf(data);
+    const positionOf = (trophy) => storyPosition.get(trophy.id) ?? Infinity;
+    return inStage.sort((a, b) => positionOf(a) - positionOf(b) || a.id - b.id);
+  }
+  const platinumLast = (trophy) => (trophy.grade === 'platinum' ? 1 : 0);
+  return inStage.sort((a, b) => platinumLast(a) - platinumLast(b) || a.id - b.id);
+}
+
+function storyOrderOf(data) {
+  const position = new Map();
+  data.timeline.forEach((step, index) => {
+    for (const id of step.trophies) if (!position.has(id)) position.set(id, index);
+  });
+  return position;
+}
+
+export function storyStepOf(data, trophyId) {
+  return data.timeline.find((step) => step.trophies.includes(trophyId));
 }
